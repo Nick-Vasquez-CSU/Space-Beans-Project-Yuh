@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ItemTracker : MonoBehaviour
 {
-	private int Beans;
+	private int Beans, Health;
+
 
     void Start()
     {
-		Beans = 0;    
+		Beans = 0;
+		Health = 100;
     }
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other) //Gains stats from 
 	{
 		if (other.gameObject.CompareTag ("Tier 1 BeanCan"))
 		{
@@ -21,6 +23,12 @@ public class ItemTracker : MonoBehaviour
 		if (other.gameObject.CompareTag ("Tier 2 BeanCan"))
 		{
 			Beans += 5;
+			other.gameObject.SetActive(false);
+		}
+
+		if (other.gameObject.CompareTag ("Tier 1 Health Pack"))
+		{
+			Health += 10;
 			other.gameObject.SetActive(false);
 		}
 	}
