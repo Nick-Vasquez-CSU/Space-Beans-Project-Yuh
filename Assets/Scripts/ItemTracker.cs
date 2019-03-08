@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemTracker : MonoBehaviour
 {
 	private int Beans, Health;
-
+	public Text BeansText;
+	public Slider HealthSlide;
 
     void Start()
     {
@@ -32,8 +34,14 @@ public class ItemTracker : MonoBehaviour
 			other.gameObject.SetActive(false);
 		}
 	}
+
+	void DisplayStats()
+	{
+		BeansText.text = "Beans: " + Beans.ToString();
+
+	}
 	void Update()
     {
-        
+		DisplayStats();
     }
 }
