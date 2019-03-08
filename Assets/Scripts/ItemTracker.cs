@@ -15,7 +15,7 @@ public class ItemTracker : MonoBehaviour
 		Health = 100;
     }
 
-	void OnTriggerEnter2D(Collider2D other) //Gains stats from 
+	void OnTriggerEnter2D(Collider2D other) //Gains stats from colliding with objects 
 	{
 		if (other.gameObject.CompareTag ("Tier 1 BeanCan"))
 		{
@@ -40,8 +40,23 @@ public class ItemTracker : MonoBehaviour
 		BeansText.text = "Beans: " + Beans.ToString();
 
 	}
+
+	void HealthTracking()
+	{
+		HealthSlide.value = Health;
+		if (HealthSlide.value == 0)
+		{
+			// Call death screen
+		}
+
+		if (Health >= 100)
+		{
+			Health = 100;
+		}
+	}
 	void Update()
     {
 		DisplayStats();
+		HealthTracking();
     }
 }
