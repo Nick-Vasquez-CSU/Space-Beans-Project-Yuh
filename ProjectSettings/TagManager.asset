@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tier 1 BeanCan
   - Tier 2 BeanCan
+  - Tier 1 Health Pack
+  - Tier 2 Health Pack
   layers:
   - Default
   - TransparentFX
