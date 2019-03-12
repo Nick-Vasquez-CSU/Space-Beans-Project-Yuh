@@ -5,11 +5,12 @@ using UnityEngine;
 public class SpawnBullet : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       spawnPoint = transform.Find("spawnPoint");
     }
 
     // Update is called once per frame
@@ -23,6 +24,6 @@ public class SpawnBullet : MonoBehaviour
 
     void InstantiateBullet()
     {
-        Instantiate(bulletPrefab);
+        Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
