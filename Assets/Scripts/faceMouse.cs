@@ -17,14 +17,13 @@ public class faceMouse : MonoBehaviour
     private void Update()
     {
 
-        isFacingRight = (transform.localEulerAngles.z >= 0 && transform.localEulerAngles.z <= 90 || transform.localEulerAngles.z >= 270 && transform.localEulerAngles.z <= 360 ) ? true : false;
-        sr.flipY = (isFacingRight == false) ? true : false;
-
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.parent.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+
+        isFacingRight = (transform.localEulerAngles.z >= 0 && transform.localEulerAngles.z <= 90 || transform.localEulerAngles.z >= 270 && transform.localEulerAngles.z <= 360) ? true : false;
+        sr.flipY = (isFacingRight == false) ? true : false;
+        transform.localPosition = (isFacingRight == false) ? new Vector3(-.5f, 0, transform.position.z) : new Vector3(.5f, 0, transform.position.z);
     }
-
-
 }
