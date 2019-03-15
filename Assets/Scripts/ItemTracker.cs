@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class ItemTracker : MonoBehaviour
 {
-	private int Beans, Health;
-	public Text BeansText;
+	private int Beans, Health, Ammo;
+	public Text BeansText, AmmoText;
 	public Slider HealthSlide;
 
     void Start()
     {
+		Ammo = 0;
 		Beans = 0;
 		Health = 100;
     }
@@ -27,7 +28,6 @@ public class ItemTracker : MonoBehaviour
 			Beans += 5;
 			other.gameObject.SetActive(false);
 		}
-
 		if (other.gameObject.CompareTag ("Tier 1 Health Pack"))
 		{
 			Health += 10;
@@ -38,7 +38,7 @@ public class ItemTracker : MonoBehaviour
 	void DisplayStats()
 	{
 		BeansText.text = "Beans: " + Beans.ToString();
-
+		AmmoText.text = "Ammo: " + Ammo.ToString();
 	}
 
 	void HealthTracking()
