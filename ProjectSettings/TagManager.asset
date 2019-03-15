@@ -9,6 +9,9 @@ TagManager:
   - Tier 1 Health Pack
   - Tier 2 Health Pack
   - Bullet_type1
+  - Bullet_type2
+  - Bullet_type3
+  - Tier S Ammo
   layers:
   - Default
   - TransparentFX
