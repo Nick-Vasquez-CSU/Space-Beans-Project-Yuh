@@ -57,8 +57,14 @@ public class EnemyData : MonoBehaviour
 			self.SetActive(false);
 		}
 	}
+
+	void EnemyAI()
+	{
+
+	}
     void Update()
     {
 		UpdatedStats();
+		EnemyAI();
     }
 }

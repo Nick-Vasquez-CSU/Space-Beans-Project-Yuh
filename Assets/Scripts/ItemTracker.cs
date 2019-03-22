@@ -5,15 +5,31 @@ using UnityEngine.UI;
 
 public class ItemTracker : MonoBehaviour
 {
-	private int Beans, Health, Sammo, Mammo, Rammo;
-	public Text BeansText, SammoText, MammoText, RammoText;
+	public static ItemTracker Instance { get; private set; }
+
+	public static int Beans, Health;
+	private static int Sammo, Mammo, Snammo;
+	public Text BeansText, SammoText, MammoText, SnammoText;
 	public Slider HealthSlide;
 
-    void Start()
+	private void Awake()
+	{
+		if(Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	void Start()
     {
 		Sammo = 0;
 		Mammo = 0;
-		Beans = 0;
+		Snammo = 0;
 		Health = 100;
     }
 
@@ -46,7 +62,7 @@ public class ItemTracker : MonoBehaviour
 		BeansText.text = "Beans: " + Beans.ToString();
 		SammoText.text = "Shotgun Ammo: " + Sammo.ToString();
 		MammoText.text = "Machine Gun Ammo: " + Mammo.ToString();
-		RammoText.text = "Rocket Ammo: " + Rammo.ToString();
+		SnammoText.text = "Sniper Ammo: " + Snammo.ToString();
 	}
 
 	void HealthTracking()
