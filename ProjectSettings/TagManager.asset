@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tier 1 BeanCan
+  - Tier 2 BeanCan
+  - Tier 1 Health Pack
+  - Tier 2 Health Pack
+  - Bullet_type1
+  - Bullet_type2
+  - Bullet_type3
+  - Tier S Ammo
   layers:
   - Default
   - TransparentFX
