@@ -5,6 +5,7 @@ using UnityEngine;
 public class addForce : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public int power = 2500;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,7 +13,7 @@ public class addForce : MonoBehaviour
         var mouseDir = mousePos - gameObject.transform.position;
         mouseDir.z = 0.0f;
         mouseDir = mouseDir.normalized;
-        rb.AddForce(mouseDir * 5000);
+        rb.AddForce(mouseDir * power);
     }
 
     // Update is called once per frame
