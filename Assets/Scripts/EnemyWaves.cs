@@ -7,11 +7,11 @@ public class EnemyWaves : MonoBehaviour
 {
 	private int WaveNumber, EnemiesRem, EnemiesTotal;
 	public GameObject Enemy1, Door;
-
+	
 
     void Start()
     {
-		WaveNumber = 1;
+		WaveNumber = 0;
 		EnemiesRem = 0;
 		EnemiesTotal = 1;
 		StartCoroutine("Everything");
@@ -26,37 +26,20 @@ public class EnemyWaves : MonoBehaviour
 		{
 			EnemiesTotal = EnemiesTotal * 2;
 		}
-
-		if (EnemiesRem == 0)
-		{
-			Door.SetActive(true);
-		}
-	}
-
-	void EnemySpawning()
-	{
-		if (WaveNumber == 10)
-		{
-			//Time.timeScale = 0;
-		}
-		else
-		{
-			Time.timeScale = 1;
-		}
-		// Actual spawning
-		Spawning();
+		
 	}
 
 	
     void Update()
     {
 		WaveSystem();
-		EnemySpawning();
+		Spawning();
     }
 	IEnumerator Everything()
 	{
 		if (EnemiesRem == 0)
 		{
+			Door.SetActive(true);
 			yield return new WaitForSeconds(30);
 			SceneManager.LoadScene("MerchantScene");
 		}
@@ -67,7 +50,7 @@ public class EnemyWaves : MonoBehaviour
 		{
 			WaveNumber += 1;
 			Debug.Log(WaveNumber);
-			yield return new WaitForSeconds(4);
+			yield return new WaitForSeconds(5);
 		}
 	}
 
