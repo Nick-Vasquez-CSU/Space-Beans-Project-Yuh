@@ -50,6 +50,7 @@ public class EnemyWaves : MonoBehaviour
 		{
 			WaveNumber += 1;
 			Debug.Log(WaveNumber);
+			Object.Instantiate(Enemy1, new Vector2(0, 0), Quaternion.identity);
 			yield return new WaitForSeconds(5);
 		}
 	}
