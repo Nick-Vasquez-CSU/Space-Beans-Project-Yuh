@@ -45,8 +45,8 @@ public class CameraFollow : MonoBehaviour
 		{
 			speed = speed * 2;
 		}
-	} 
-
+	}
+	
     void FixedUpdate()
     {
 		Movement();
