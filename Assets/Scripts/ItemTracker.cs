@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ItemTracker : MonoBehaviour
 {
-	public static ItemTracker Instance { get; private set; }
+	public static ItemTracker Instance;
 
-	public static int Beans, Health;
-	private static int Sammo, Mammo, Snammo;
+	public int Beans, Health;
+	private int Sammo, Mammo, Snammo;
 	public Text BeansText, SammoText, MammoText, SnammoText;
 	public Slider HealthSlide;
 

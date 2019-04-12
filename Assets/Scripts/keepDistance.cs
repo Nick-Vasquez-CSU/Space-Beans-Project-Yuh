@@ -35,7 +35,7 @@ public class keepDistance : MonoBehaviour
             }
             else
             {
-                rb2d.velocity = new Vector2(0, 0);
+               rb2d.velocity = new Vector2(0, 0);
             }
         }
         else

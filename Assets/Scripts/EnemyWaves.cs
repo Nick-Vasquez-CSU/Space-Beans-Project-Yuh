@@ -2,37 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyWaves : MonoBehaviour
 {
 	private int WaveNumber, EnemiesRem, EnemiesTotal;
 	public GameObject Enemy1, Door;
-	
+	public Text enemyText;
 
-    void Start()
+    void Awake()
     {
 		WaveNumber = 0;
-		EnemiesRem = 0;
-		EnemiesTotal = 1;
+		EnemiesRem = 50;
 		StartCoroutine("Everything");
 		StartCoroutine("Spawning");
 		Door.SetActive(false);
     }
 
-	void WaveSystem()
+	void Start()
 	{
-
-		for(int cur = 0; cur < WaveNumber; cur++)
-		{
-			EnemiesTotal = EnemiesTotal * 2;
-		}
-		
+		WaveNumber = 0;
+		EnemiesRem = 50;
+		StartCoroutine("Everything");
+		StartCoroutine("Spawning");
+		Door.SetActive(false);
 	}
 
-	
-    void Update()
-    {
-		WaveSystem();
+	void Update()
+	{
+		enemyText.text = "Remaining Enemies: " + EnemiesRem.ToString();
 		Spawning();
     }
 	IEnumerator Everything()
