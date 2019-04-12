@@ -10,7 +10,7 @@ public class SpawnBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       spawnPoint = transform.Find("spawnPoint");
+       spawnPoint = transform.Find("playerSpawnBullet");
     }
 
     // Update is called once per frame
