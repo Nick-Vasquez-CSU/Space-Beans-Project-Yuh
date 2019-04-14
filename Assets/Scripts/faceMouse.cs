@@ -22,6 +22,6 @@ public class faceMouse : MonoBehaviour
 
         isFacingRight = (transform.localEulerAngles.z >= 0 && transform.localEulerAngles.z <= 90 || transform.localEulerAngles.z >= 270 && transform.localEulerAngles.z <= 360) ? true : false;
         sr.flipY = (isFacingRight == false) ? true : false;
-        transform.localPosition = (isFacingRight == false) ? new Vector3(-.5f, 0, transform.position.z) : new Vector3(.5f, 0, transform.position.z);
+        transform.localPosition = (isFacingRight == false) ? new Vector3(-1.5f, 0, transform.position.z) : new Vector3(1.5f, 0, transform.position.z);
     }
 }

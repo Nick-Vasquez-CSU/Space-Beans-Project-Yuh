@@ -21,29 +21,22 @@ public class CameraFollow : MonoBehaviour
 		{
 			speed = 34;
 		}
-		if (Input.GetKeyUp(KeyCode.LeftShift))
-		{
-			speed = regularSpeed;
-		}
-		if (Input.GetKey(KeyCode.RightArrow))
+
+		if (Input.GetKey(KeyCode.D))
 		{
 			rb2d.velocity = new Vector2(speed, 0);
 		}
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.A))
 		{
 			rb2d.velocity = new Vector2(-speed, 0);
 		}
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.W))
 		{
 			rb2d.velocity = new Vector2(0, speed);
 		}
-		if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.S))
 		{
 			rb2d.velocity = new Vector2(0, -speed);
-		}
-		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			speed = speed * 2;
 		}
 	}
 	
