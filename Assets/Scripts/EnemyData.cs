@@ -13,21 +13,42 @@ public class EnemyData : MonoBehaviour
     }
 
     void BaseStats()
-	{
-		if (Enemydiff == 1)
+	{	if (Enemytype == 2)
 		{
-			Health = 10;
-			Damage = 6;
-		}
-		else if (Enemydiff == 2)
+			if (Enemydiff == 1)
+			{
+				Health = 10;
+				Damage = 1;
+			}
+			else if (Enemydiff == 2)
+			{
+				Health = 20;
+				Damage = 5;
+			}
+			else if (Enemydiff == 3)
+			{
+				Health = 30;
+				Damage = 10;
+			}
+		} 
+		
+		else if (Enemytype == 1)
 		{
-			Health = 20;
-			Damage = 12;
-		}
-		else if (Enemydiff == 3)
-		{
-			Health = 30;
-			Damage = 20;
+			if (Enemydiff == 1)
+			{
+				Health = 5;
+				Damage = 1;
+			}
+			else if (Enemydiff == 2)
+			{
+				Health = 10;
+				Damage = 5;
+			}
+			else if (Enemydiff == 3)
+			{
+				Health = 20;
+				Damage = 10;
+			}
 		}
 		else
 		{
@@ -44,8 +65,8 @@ public class EnemyData : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Bullet_type1"))
 		{
-			Health -= 1;
-			other.gameObject.SetActive(false);
+			Health -= 3;
+			Destroy(other.gameObject);
 		}
 
 	}

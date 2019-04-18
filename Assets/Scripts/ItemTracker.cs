@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ItemTracker : MonoBehaviour
 {
@@ -31,7 +32,8 @@ public class ItemTracker : MonoBehaviour
 		Mammo = 0;
 		Snammo = 0;
 		Health = 100;
-    }
+		HealthSlide.value = Health;
+	}
 
 	void OnTriggerEnter2D(Collider2D other) //Gains stats from colliding with objects 
 	{
@@ -47,13 +49,27 @@ public class ItemTracker : MonoBehaviour
 		}
 		if (other.gameObject.CompareTag ("Tier 1 Health Pack"))
 		{
-			Health += 10;
+			HealthSlide.value += 10;
+			other.gameObject.SetActive(false);
+		}
+		if (other.gameObject.CompareTag ("Tier 2 Health Pack"))
+		{
+			HealthSlide.value += 100;
 			other.gameObject.SetActive(false);
 		}
 		if (other.gameObject.CompareTag ("Tier S Ammo"))
 		{
 			Sammo += 3;
 			other.gameObject.SetActive(false);
+		}
+		if (other.gameObject.CompareTag("Bullet_type2"))
+		{
+			HealthSlide.value -= 2;
+			Destroy(other.gameObject);
+		}
+		if (other.gameObject.Equals("space_bean_door_1"))
+		{
+			SceneManager.LoadScene("MerchantScene");
 		}
 	}
 
@@ -67,16 +83,15 @@ public class ItemTracker : MonoBehaviour
 
 	void HealthTracking()
 	{
-		HealthSlide.value = Health;
 		if (HealthSlide.value == 0)
 		{
-			// Call death screen
+			SceneManager.LoadScene("Main Menu");
 		}
 
-		if (Health >= 100)
-		{
-			Health = 100;
-		}
+		//if (HealthSlide.value > 100)
+		//{
+		//	HealthSlide.value = 100;
+		//}
 	}
 	void FixedUpdate()
     {

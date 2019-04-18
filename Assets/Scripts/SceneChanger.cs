@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void PlayButton()
     {
-        SceneManager.LoadScene("Level 1_temp");
+        SceneManager.LoadScene("GAMEPLAY1");
     }
 
     public void CreditsButton()
