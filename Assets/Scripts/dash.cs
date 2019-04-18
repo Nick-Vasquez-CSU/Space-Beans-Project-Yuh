@@ -4,50 +4,65 @@ using UnityEngine;
 
 public class dash : MonoBehaviour
 {
-    public DashState dashState;
-    public float dashTimer;
-    public float maxDash = 20f;
-    public float dashPower = 1.5f;
+    private Rigidbody2D rb;
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private int direction;
 
-    public Vector2 savedVelocity;
-
-    void Update()
+    private void Start()
     {
-        switch (dashState)
+        rb = GetComponent<Rigidbody2D>();
+        dashTime = startDashTime;
+        direction = 0;
+    }
+    private void Update()
+    {
+        if(direction == 0)
         {
-            case DashState.Ready:
-                var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
-                if (isDashKeyDown)
+            if(Input.GetKeyDown(KeyCode.A)) {
+                direction = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                direction = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                direction = 3;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                direction = 4;
+            }
+        }
+        else
+        {
+            if(dashTime <= 0)
+            {
+                direction = 0;
+                dashTime = startDashTime;
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+                if(direction == 1)
                 {
-                    savedVelocity = GetComponent<Rigidbody2D>().velocity;
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x * dashPower, GetComponent<Rigidbody2D>().velocity.y * dashPower);
-                    dashState = DashState.Dashing;
+                    rb.velocity = Vector2.left * dashSpeed;
                 }
-                break;
-            case DashState.Dashing:
-                dashTimer += Time.deltaTime * 3;
-                if (dashTimer >= maxDash)
+                else if (direction == 2)
                 {
-                    dashTimer = maxDash;
-                    GetComponent<Rigidbody2D>().velocity = savedVelocity;
-                    dashState = DashState.Cooldown;
+                    rb.velocity = Vector2.right * dashSpeed;
                 }
-                break;
-            case DashState.Cooldown:
-                dashTimer -= Time.deltaTime;
-                if (dashTimer <= 0)
+                else if (direction == 3)
                 {
-                    dashTimer = 0;
-                    dashState = DashState.Ready;
+                    rb.velocity = Vector2.up * dashSpeed;
                 }
-                break;
+                else if (direction == 4)
+                {
+                    rb.velocity = Vector2.down * dashSpeed;
+                }
+            }
         }
     }
-}
-
-public enum DashState
-{
-    Ready,
-    Dashing,
-    Cooldown
 }
