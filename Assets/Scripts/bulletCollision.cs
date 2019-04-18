@@ -21,10 +21,10 @@ public class bulletCollision : MonoBehaviour
         if(collision.gameObject.tag.Equals("Bullet_type1"))
         {
             Destroy(collision.gameObject);
-            if (gameObject.tag.Equals("enemy"))
-            {
-                Destroy(gameObject);
-            }
+            //if (gameObject.tag.Equals("enemy"))
+            //{
+                //Destroy(gameObject);
+            //}
         }
     }
 }

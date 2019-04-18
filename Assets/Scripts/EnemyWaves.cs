@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyWaves : MonoBehaviour
 {
 	private int WaveNumber, EnemiesRem, EnemiesTotal;
-	public GameObject Enemy1, Door;
+	public GameObject Enemy1_1, Enemy1_2, Enemy1_3, Enemy2_1, Enemy2_2, Enemy2_3,  Door;
 	public Text enemyText;
 
     void Awake()
@@ -48,7 +48,11 @@ public class EnemyWaves : MonoBehaviour
 		{
 			WaveNumber += 1;
 			Debug.Log(WaveNumber);
-			Object.Instantiate(Enemy1, new Vector2(0, 0), Quaternion.identity);
+			if (WaveNumber <= 3)
+			{
+				Object.Instantiate(Enemy1_1, new Vector2(0, 0), Quaternion.identity);
+			}
+			Object.Instantiate(Enemy1_1, new Vector2(0, 0), Quaternion.identity);
 			yield return new WaitForSeconds(5);
 		}
 	}
