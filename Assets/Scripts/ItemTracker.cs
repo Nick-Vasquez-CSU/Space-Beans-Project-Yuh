@@ -85,6 +85,7 @@ public class ItemTracker : MonoBehaviour
 	{
 		if (HealthSlide.value == 0)
 		{
+
 			SceneManager.LoadScene("Main Menu");
 		}
 
