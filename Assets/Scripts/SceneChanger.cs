@@ -19,4 +19,9 @@ public class SceneChanger : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
