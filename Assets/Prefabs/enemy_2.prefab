@@ -268,6 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingRight: 1
+  enemyPos: {fileID: 543139482835597625}
+  playerPos: {fileID: 8979412627457094461, guid: d40846abe89461646a6c326b0af1607a,
+    type: 3}
 --- !u!114 &7036002416866394696
 MonoBehaviour:
   m_ObjectHideFlags: 0
