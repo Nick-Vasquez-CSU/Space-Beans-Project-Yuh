@@ -7,12 +7,13 @@ public class enemyFacing : MonoBehaviour
     public bool isFacingRight = true;
     SpriteRenderer sr;
     public GameObject enemyPos;
-    public GameObject playerPos;
+    Transform playerPos;
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        playerPos = GameObject.Find("Test_Player").transform;
     }
 
     // Update is called once per frame
