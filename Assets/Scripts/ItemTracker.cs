@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemTracker : MonoBehaviour
 {
-	public static ItemTracker Instance;
+	//public static ItemTracker Instance;
 
 	public int Beans = 0, Health;
 	private int Sammo = 0, Mammo = 0, Snammo = 0;
@@ -28,20 +28,20 @@ public class ItemTracker : MonoBehaviour
 
 	void Start()
     {
-		Health = 100;
-		HealthSlide.value = Health;
+		GlobalData.Instance.Health = 100;
+		HealthSlide.value = GlobalData.Instance.Health;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) //Gains stats from colliding with objects 
 	{
 		if (other.gameObject.CompareTag ("Tier 1 BeanCan"))
 		{
-			Beans += 1;
+			GlobalData.Instance.Beans += 1;
 			other.gameObject.SetActive(false);
 		}
 		if (other.gameObject.CompareTag ("Tier 2 BeanCan"))
 		{
-			Beans += 5;
+			GlobalData.Instance.Beans += 5;
 			other.gameObject.SetActive(false);
 		}
 		if (other.gameObject.CompareTag ("Tier 1 Health Pack"))
@@ -56,7 +56,7 @@ public class ItemTracker : MonoBehaviour
 		}
 		if (other.gameObject.CompareTag ("Tier S Ammo"))
 		{
-			Sammo += 3;
+			GlobalData.Instance.Sammo += 3;
 			other.gameObject.SetActive(false);
 		}
 		if (other.gameObject.CompareTag("Bullet_type2"))
@@ -72,10 +72,10 @@ public class ItemTracker : MonoBehaviour
 
 	void DisplayStats()
 	{
-		BeansText.text = "Beans: " + Beans.ToString();
-		SammoText.text = "Shotgun Ammo: " + Sammo.ToString();
-		MammoText.text = "Machine Gun Ammo: " + Mammo.ToString();
-		SnammoText.text = "Sniper Ammo: " + Snammo.ToString();
+		BeansText.text = "Beans: " + GlobalData.Instance.Beans.ToString();
+		SammoText.text = "Shotgun Ammo: " + GlobalData.Instance.Sammo.ToString();
+		MammoText.text = "Machine Gun Ammo: " + GlobalData.Instance.Mammo.ToString();
+		SnammoText.text = "Sniper Ammo: " + GlobalData.Instance.Snammo.ToString();
 	}
 
 	void HealthTracking()

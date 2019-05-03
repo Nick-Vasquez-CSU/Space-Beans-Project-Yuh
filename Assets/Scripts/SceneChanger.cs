@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public void PlayButton()
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+			SceneManager.LoadScene("Level 1_temp");
+		}
+	}
+
+	public void PlayButton()
     {
         SceneManager.LoadScene("Level 1_temp");
     }
@@ -14,6 +22,11 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("Credits_Scene");
     }
+
+	public void InstructButton()
+	{
+		SceneManager.LoadScene("Instructions");
+	}
 
     public void QuitButton()
     {

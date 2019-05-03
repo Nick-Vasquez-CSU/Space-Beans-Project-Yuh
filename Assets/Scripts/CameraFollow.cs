@@ -20,6 +20,7 @@ public class CameraFollow : MonoBehaviour
 
 	void Movement()
 	{	
+
 		if (speed > 34) //Prevents speed from exponentially increasing
 		{
 			speed = 34;

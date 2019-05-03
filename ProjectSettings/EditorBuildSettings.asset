@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fungus Flavor Text.unity
     guid: a5855901372a1c4429a2d8822115c721
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: cec78be3b9e828943bb71a97ba6cece8
   m_configObjects: {}
