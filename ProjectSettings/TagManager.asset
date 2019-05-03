@@ -12,6 +12,8 @@ TagManager:
   - Bullet_type2
   - Bullet_type3
   - Tier S Ammo
+  - enemy
+  - Door
   layers:
   - Default
   - TransparentFX

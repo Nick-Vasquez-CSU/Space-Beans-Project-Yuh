@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyWaves : MonoBehaviour
 {
-	private int WaveNumber, EnemiesRem, EnemiesTotal;
+	private int WaveNumber, EnemiesRem, EnemiesTotal, xSpawn, ySpawn;
 	public GameObject Enemy1_1, Enemy1_2, Enemy1_3, Enemy2_1, Enemy2_2, Enemy2_3,  Door;
 	public Text enemyText;
 
@@ -36,7 +36,7 @@ public class EnemyWaves : MonoBehaviour
 	{
 		if (EnemiesRem <= 0)
 		{
-			Door.transform.position = new Vector2(-7.38f, 6.41f);
+			Door.transform.position = new Vector2(286f, 45f);
 			yield return new WaitForSeconds(30);
 			SceneManager.LoadScene("MerchantScene");
 		}
@@ -49,27 +49,27 @@ public class EnemyWaves : MonoBehaviour
 			Debug.Log(WaveNumber);
 			if (WaveNumber <= 3)
 			{
-				Object.Instantiate(Enemy1_1, new Vector2(3, 2), Quaternion.identity);
-				Object.Instantiate(Enemy1_1, new Vector2(-20, -7), Quaternion.identity);
-				Object.Instantiate(Enemy2_1, new Vector2(12, -11), Quaternion.identity);
-				Object.Instantiate(Enemy2_1, new Vector2(-11, -23), Quaternion.identity);
-				Object.Instantiate(Enemy2_1, new Vector2(0, -23), Quaternion.identity);
+				Object.Instantiate(Enemy1_1, new Vector2(x: Random.Range(240f, 305f), y: Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy1_1, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_1, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_1, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_1, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
 			}
 			else if (WaveNumber <= 6)
 			{
-				Object.Instantiate(Enemy1_2, new Vector2(3, 2), Quaternion.identity);
-				Object.Instantiate(Enemy1_2, new Vector2(-20, -7), Quaternion.identity);
-				Object.Instantiate(Enemy1_2, new Vector2(12, -11), Quaternion.identity);
-				Object.Instantiate(Enemy2_2, new Vector2(-11, -23), Quaternion.identity);
-				Object.Instantiate(Enemy2_2, new Vector2(0, -23), Quaternion.identity);
+				Object.Instantiate(Enemy1_2, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy1_2, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy1_2, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_2, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_2, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
 			}
 			else if (WaveNumber <= 10)
 			{
-				Object.Instantiate(Enemy1_3, new Vector2(3, 2), Quaternion.identity);
-				Object.Instantiate(Enemy1_3, new Vector2(-20, -7), Quaternion.identity);
-				Object.Instantiate(Enemy2_3, new Vector2(12, -11), Quaternion.identity);
-				Object.Instantiate(Enemy2_3, new Vector2(-11, -23), Quaternion.identity);
-				Object.Instantiate(Enemy2_3, new Vector2(0, -23), Quaternion.identity);
+				Object.Instantiate(Enemy1_3, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy1_3, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_3, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_3, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
+				Object.Instantiate(Enemy2_3, new Vector2(Random.Range(240f, 305f), Random.Range(15f, 60f)), Quaternion.identity);
 			}
 			EnemiesRem -= 5;
 			yield return new WaitForSeconds(10);

@@ -8,29 +8,26 @@ public class ItemTracker : MonoBehaviour
 {
 	public static ItemTracker Instance;
 
-	public int Beans, Health;
-	private int Sammo, Mammo, Snammo;
+	public int Beans = 0, Health;
+	private int Sammo = 0, Mammo = 0, Snammo = 0;
 	public Text BeansText, SammoText, MammoText, SnammoText;
 	public Slider HealthSlide;
 
 	private void Awake()
 	{
-		if(Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
+		//if(Instance == null)
+		//{
+			//Instance = this;
+			//DontDestroyOnLoad(gameObject);
+		//}
+		//else
+		//{
+			//Destroy(gameObject);
+		//}
 	}
 
 	void Start()
     {
-		Sammo = 0;
-		Mammo = 0;
-		Snammo = 0;
 		Health = 100;
 		HealthSlide.value = Health;
 	}
@@ -67,9 +64,9 @@ public class ItemTracker : MonoBehaviour
 			HealthSlide.value -= 2;
 			Destroy(other.gameObject);
 		}
-		if (other.gameObject.Equals("space_bean_door_1"))
+		if (other.gameObject.CompareTag("Door"))
 		{
-			SceneManager.LoadScene("MerchantScene");
+			SceneManager.LoadScene("Fungus Flavor Text");
 		}
 	}
 
@@ -89,12 +86,12 @@ public class ItemTracker : MonoBehaviour
 			SceneManager.LoadScene("Main Menu");
 		}
 
-		//if (HealthSlide.value > 100)
-		//{
-		//	HealthSlide.value = 100;
-		//}
+		if (HealthSlide.value > 100)
+		{
+			HealthSlide.value = 100;
+		}
 	}
-	void FixedUpdate()
+	void Update()
     {
 		DisplayStats();
 		HealthTracking();
